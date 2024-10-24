@@ -9,7 +9,7 @@ public class MeShop {
         int input;
         do {
             while (!sc.hasNextInt()) {
-                System.out.println("Not a valid positive value");
+                System.out.println("Not a valid positive value, please enter a positive number.");
                 sc.next();
             }
             input = sc.nextInt();
@@ -21,8 +21,8 @@ public class MeShop {
     }
 
     public ArrayList getItemCostInput(Scanner sc, ArrayList<Integer> list) {
-        System.out.println("Please enter all the item prices you want included in the total cost.");
-        System.out.println("Type DONE when you wish to finish");
+        System.out.println("Please enter all the item prices you want included in the total cost.\n" +
+                "Type DONE when you wish to finish.");
 
 
         while (sc.hasNextLine()) {
@@ -36,7 +36,7 @@ public class MeShop {
                 int inputAsNum = Integer.parseInt(input);
 
                 if (inputAsNum <= 0) {
-                    System.out.println("Not a valid positive value");
+                    System.out.println("Not a valid positive value, please enter a positive number.");
                     continue;
                 }
 
