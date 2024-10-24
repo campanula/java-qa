@@ -2,6 +2,8 @@ package org.lbg.c4;
 
 
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.LineNumberReader;
 
 /**
  * Hello world!
@@ -9,15 +11,12 @@ import java.io.IOException;
 public class App {
     public static void main(String[] args) {
 
-        int counter = 0;
-        char val;
+        InputStreamReader isr = new InputStreamReader(System.in);
+        LineNumberReader lnr = new LineNumberReader(isr);
 
         try {
-            while ((val = (char) System.in.read()) != -1) {
-                counter++;
-                System.out.println("count" + counter);
-                System.out.println("chars" + val);
-                System.out.println("char entered" + Integer.toHexString(val));
+            while (lnr.readLine() != null) {
+                System.out.println(lnr.getLineNumber());
             }
         } catch (IOException e) {
             System.out.println(e);
