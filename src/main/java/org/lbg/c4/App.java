@@ -17,6 +17,7 @@ public class App {
                 counter++;
                 System.out.println("count" + counter);
                 System.out.println("chars" + val);
+                System.out.println("char entered" + Integer.toHexString(val));
             }
         } catch (IOException e) {
             System.out.println(e);
