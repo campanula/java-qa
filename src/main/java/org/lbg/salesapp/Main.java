@@ -11,7 +11,7 @@ public class Main {
 
         ArrayList<Integer> itemCostInput = new ArrayList<>();
         String instr;
-        int vatInput = 0;
+
         double vatAmnt = 0;
 
         while (true) {
@@ -26,11 +26,7 @@ public class Main {
                 }
             }
 
-            //get vat rate
-            if (vatInput == 0) {
-                System.out.println("Please enter the VAT rate first.");
-                vatInput = s.getVatInput(sc);
-            }
+
 
             // Get Item Costs
             itemCostInput = s.getItemCostInput(sc, itemCostInput);
@@ -39,7 +35,7 @@ public class Main {
             double itemCost = s.calculateTotalCost(itemCostInput);
             
             if (vatAmnt == 0){
-                vatAmnt = s.calculateVAT(itemCost, vatInput);
+                vatAmnt = s.calculateVAT(itemCost, s.vatInput);
             }
             
             double totalWithVat = s.calculateTotalWithVatAndQuantity(itemCostInput, itemCost, vatAmnt );

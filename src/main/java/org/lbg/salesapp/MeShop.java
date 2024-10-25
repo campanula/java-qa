@@ -4,6 +4,30 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MeShop {
+    int vatInput = 0;
+
+    public void getConstantScanInput(Scanner sc) {
+        String input = null;
+        String nl;
+        String data = null;
+
+        while (sc.hasNextLine()) {
+            nl = sc.nextLine();
+            input = nl.trim().toUpperCase();
+
+            if (input.equals("QUIT")) {
+                data = "QUIT";
+                break;
+            }
+
+            //get vat rate
+            if (vatInput == 0) {
+                System.out.println("Please enter the VAT rate first.");
+                vatInput = getVatInput(sc);
+            }
+
+        }
+    }
 
     public int getVatInput(Scanner sc) {
         int input;
@@ -20,7 +44,7 @@ public class MeShop {
 
     }
 
-    public ArrayList getItemCostInput(Scanner sc, ArrayList<Integer> list) {
+    public ArrayList<Integer> getItemCostInput(Scanner sc, ArrayList<Integer> list) {
         System.out.println("Please enter all the item prices you want included in the total cost.\n" +
                 "Type DONE when you wish to finish.");
 
@@ -88,13 +112,13 @@ public class MeShop {
 
 
     public static double calculateVAT(double totalCost, double vatInput) {
-        double vatAmnt = (totalCost * vatInput);
-        return vatAmnt / 100;
+        return (totalCost * vatInput) / 100;
     }
 
     public static double calculateTotalWithVatAndQuantity(ArrayList<Integer> itemCostInput, double totalCost, double vatAmnt) {
-        Item item = new Item(itemCostInput, totalCost, vatAmnt);
-        double totalIncVat = ((item.totalCost + item.vatAmnt) * item.itemCostInput.size());
-        return totalIncVat;
+        // removing request for object bc i dont want it
+        //Item item = new Item(itemCostInput, totalCost, vatAmnt);
+        //double totalIncVat = ((item.totalCost + item.vatAmnt) * item.itemCostInput.size());
+        return (totalCost + vatAmnt) * itemCostInput.size();
     }
 }
