@@ -21,8 +21,24 @@ public class HighestNumberFinderTest {
         assertEquals(expectedResult, actualResult);
     }
 
-    // findHighestNumber will return 13 from 7, 13
+    // findHighestNumber will return 13 from 13, 4
+    @Test
     public void find_highest_in_array_of_two_descending_expect_first_element() {
+        // arrange
+        HighestNumberFinder cut = new HighestNumberFinder();
+        int[] input = {13, 4};
+        int expectedResult = 13;
+
+        // act
+        int actualResult = cut.findHighestNumber(input);
+
+        // assert
+        assertEquals(expectedResult, actualResult);
+    }
+
+    // findHighestNumber will return 13 from 7, 13
+    @Test
+    public void find_highest_in_array_of_two_ascending_expect_second_element() {
         // arrange
         HighestNumberFinder cut = new HighestNumberFinder();
         int[] input = {7, 13};
@@ -34,5 +50,4 @@ public class HighestNumberFinderTest {
         // assert
         assertEquals(expectedResult, actualResult);
     }
-
 }
