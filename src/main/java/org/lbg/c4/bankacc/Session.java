@@ -19,7 +19,32 @@ public class Session
         this.dataStore = dataStore;
 
     }
- 
+
+    public String getTotalPrice(){
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        double basketTotal = dataStore.getTotalPriceInDB();
+
+        String result = "";
+
+        try
+
+        {
+
+            result = objectMapper.writeValueAsString(basketTotal);
+
+        } catch (JsonProcessingException e)
+
+        {
+
+            e.printStackTrace();
+
+        }
+
+        return result;
+
+    }
+
     public String   getItems()
 
     {
