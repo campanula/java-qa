@@ -5,5 +5,7 @@ public interface IDataStore {
 
     public double getTotalPriceInDB();
 
+    public Item getLastItemSoldInDB();
+
 }
  

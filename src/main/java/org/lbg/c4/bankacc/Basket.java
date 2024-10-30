@@ -13,6 +13,10 @@ public class Basket
 
     public Basket(){}
 
+    public Item getLastItemSold(){
+        return itsItems.get(itsItems.size()-1);
+    }
+
     public void addItem( Item item )
     {
         itsItems.add( item );
