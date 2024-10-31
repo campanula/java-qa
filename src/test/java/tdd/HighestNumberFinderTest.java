@@ -93,4 +93,19 @@ public class HighestNumberFinderTest {
         // assert
         assertThrows(IllegalArgumentException.class, () ->  cut.findHighestNumber(emptyArray));
     }
+
+    // findHighestNumber will return only one number from 4, 13, 13
+    @Test
+    public void find_highest_in_array_of_two_negative_numbers_return_second_element() {
+        // arrange
+        HighestNumberFinder cut = new HighestNumberFinder();
+        int[] input = {-4, -3};
+        int expectedResult = -3;
+
+        // act
+        int actualResult = cut.findHighestNumber(input);
+
+        // assert
+        assertEquals(expectedResult, actualResult);
+    }
 }
