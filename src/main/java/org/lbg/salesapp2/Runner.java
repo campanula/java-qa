@@ -29,9 +29,6 @@ public class Runner {
                 LineEntry le = new LineEntry(lineRead);
                 lines.add(le);
 
-                //StoreController storeController = new StoreController();
-                //vatInputReader.getValidatedVatRate()
-                //storeController.calculateVAT()
             }
         }
 
