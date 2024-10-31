@@ -1,4 +1,4 @@
-package tdd;
+package org.lbg.salesapp2;
 
 import org.junit.jupiter.api.Test;
 import org.lbg.salesapp2.StoreController;
