@@ -50,4 +50,19 @@ public class HighestNumberFinderTest {
         // assert
         assertEquals(expectedResult, actualResult);
     }
+
+    // findHighestNumber will return 11 from 4, 5, -8, 3, 11, -21, 6
+    @Test
+    public void find_highest_in_array_of_seven_ascending_expect_fifth_element() {
+        // arrange
+        HighestNumberFinder cut = new HighestNumberFinder();
+        int[] input = {4, 5, -8, 3, 11, -21, 6};
+        int expectedResult = 11;
+
+        // act
+        int actualResult = cut.findHighestNumber(input);
+
+        // assert
+        assertEquals(expectedResult, actualResult);
+    }
 }
