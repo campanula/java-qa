@@ -42,4 +42,23 @@ public class StoreControllerTest {
         assertNotEquals(notExpectedResult, actualResult);
 
     }
+
+    //(cost + vat) * size
+    @Test
+    public void calculateTotalWithVATAndQuantity_will_return_the_total(){
+        // arrange
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        StoreController cut = new StoreController();
+        double expectedResult = 6;
+        arrayList.add(1);
+        arrayList.add(2);
+
+
+        // act
+        double actualResult = cut.calculateTotalWithVatAndQuantity(arrayList, 1, 2);
+
+        // assert
+        assertEquals(expectedResult, actualResult);
+
+    }
 }
