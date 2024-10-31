@@ -65,4 +65,19 @@ public class HighestNumberFinderTest {
         // assert
         assertEquals(expectedResult, actualResult);
     }
+
+    // findHighestNumber will return only one number from 4, 13, 13
+    @Test
+    public void find_highest_in_array_of_multiple_highest_elements_return_only_one() {
+        // arrange
+        HighestNumberFinder cut = new HighestNumberFinder();
+        int[] input = {4, 13, 13};
+        int expectedResult = 13;
+
+        // act
+        int actualResult = cut.findHighestNumber(input);
+
+        // assert
+        assertEquals(expectedResult, actualResult);
+    }
 }
