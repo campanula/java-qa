@@ -3,6 +3,7 @@ package tdd;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class HighestNumberFinderTest {
 
@@ -79,5 +80,17 @@ public class HighestNumberFinderTest {
 
         // assert
         assertEquals(expectedResult, actualResult);
+    }
+
+    // check if fhn throws on empty
+    @Test
+    public void findHighestNumber_empty_array_should_throw_exception() {
+        // arrange
+        HighestNumberFinder cut = new HighestNumberFinder();
+        int[] emptyArray = {};
+
+        // act
+        // assert
+        assertThrows(IllegalArgumentException.class, () ->  cut.findHighestNumber(emptyArray));
     }
 }
