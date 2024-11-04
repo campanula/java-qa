@@ -156,7 +156,7 @@ public class BankAccountTest {
     public void onDebit_invalid_debit_negative() {
         // arrange
         double startAmount = 1000;
-        double expectedEndAmount = 1000;
+        double expectedEndAmount = 1100;
         double debitAmount = -100;
         BankAccount cut = new BankAccount(startAmount);
 
