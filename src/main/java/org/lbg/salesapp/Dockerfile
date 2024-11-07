@@ -18,7 +18,7 @@ FROM openjdk:11-jre-slim
 WORKDIR /app
 
 # Copy the packaged jar file from the build stage
-COPY --from=build /app/target/*.jar ./out/artifacts/language_basics.jar
+COPY --from=build /app/target/*.jar ./out/artifacts/
 
 # Expose the port the application runs on
 EXPOSE 8080
