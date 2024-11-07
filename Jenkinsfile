@@ -1,33 +1,36 @@
-pipeline {
+pipeline{
+ environment {
+ registry = "campanulia/java-app"
+        registryCredentials = "DOCKER_LOGIN"
+        dockerImage = ""
+    }
     agent any
-    tools {
-        maven "m3"
-    }
-    stages {
-      stage("checkout"){
-        steps {                
-            git branch: "main", url: "https://github.com/campanula/java-qa.git"
-            }
-        }
-        stage("build"){
-            steps {
-                echo "build"
-            }
-        }
-           stage("deploy"){
-               steps{
-                   sh "mvn clean compile"
-               }
-           }
-            stage("test"){
+        stages {
+            stage ('Build Docker Image'){
                 steps{
-                     sh "mvn test"
+                    script {
+                        dockerImage = docker.build(registry)
+                    }
                 }
             }
-            stage("package"){
-                steps{
-                     sh "mvn -Dmaven.test.skip -Dmaven.compile.skip package"
+
+            stage ("Push to Docker Hub"){
+                steps {
+                    script {
+                        docker.withRegistry('', registryCredentials) {
+                            dockerImage.push("${env.BUILD_NUMBER}")
+                            dockerImage.push("latest")
+                        }
+                    }
+                }
+            }
+
+            stage ("Clean up"){
+                steps {
+                    script {
+                        sh 'docker image prune --all --force --filter "until=48h"'
+                           }
                 }
             }
         }
-    }
+}
