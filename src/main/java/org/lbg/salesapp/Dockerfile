@@ -5,8 +5,8 @@ FROM maven:3.8.5-openjdk-17 AS build
 WORKDIR /app
 
 # Copy the pom.xml and the src directory
-COPY ../../../pom.xml ./
-COPY ../../../src ./src
+COPY pom.xml ./
+COPY src ./src
 
 # Build the application
 RUN mvn clean package
