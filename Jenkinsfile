@@ -9,7 +9,7 @@ pipeline{
             stage ('Build Docker Image'){
                 steps{
                     script {
-                        dockerImage = docker.build('image', '-f src/main/java/org/lbg/salesapp/Dockerfile .')
+                        dockerImage = docker.build('registry', '-f src/main/java/org/lbg/salesapp/Dockerfile .')
                     }
                 }
             }
