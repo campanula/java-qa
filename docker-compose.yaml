@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  salesapp:
+    image: campanulia/salesapp
+    build:
+      context: .
+      dockerfile: src/main/java/org/lbg/salesapp/Dockerfile
+    ports:
+      - "8080:8080"
